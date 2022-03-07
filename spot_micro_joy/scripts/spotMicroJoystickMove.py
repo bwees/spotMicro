@@ -14,27 +14,27 @@ class SpotMicroJoystickControl():
     BUTTON_STAND = 2
     BUTTON_ANGLE = 3
 
-    ANGLE_AXES_ROLL = 0
-    ANGLE_AXES_HEIGHT = 1
-    ANGLE_AXES_YAW = 2
-    ANGLE_AXES_PITCH = 3
+    ANGLE_AXES_ROLL = 3
+    ANGLE_AXES_HEIGHT = 4
+    ANGLE_AXES_YAW = 0
+    ANGLE_AXES_PITCH = 1
 
     WALK_AXES_FORWARD = 1
     WALK_AXES_STRAFE = 0
-    WALK_AXES_YAW = 2
+    WALK_AXES_YAW = 3
 
     MODE_IDLE = 0
     MODE_STAND = 1
     MODE_ANGLE = 2
     MODE_WALK = 3
 
-    MAX_ROLL_DEG = 45
-    MAX_YAW_DEG = 45
-    MAX_PATCH_DEG = 45
+    MAX_ROLL_DEG = 30
+    MAX_YAW_DEG = 30
+    MAX_PATCH_DEG = 20
 
-    MAX_FORWARD_SPEED = 0.05
-    MAX_STRAFE_SPEED = 0.05
-    MAX_YAW_SPEED_DEG = 15
+    MAX_FORWARD_SPEED = 0.12
+    MAX_STRAFE_SPEED = 0.08
+    MAX_YAW_SPEED_DEG = 40
 
     def __init__(self):
 
@@ -126,8 +126,8 @@ class SpotMicroJoystickControl():
 
     def on_joy_walk_mode(self, axes):
         self._vel_cmd_msg.linear.x = axes[self.WALK_AXES_FORWARD] * self.MAX_FORWARD_SPEED
-        self._vel_cmd_msg.linear.y = axes[self.WALK_AXES_STRAFE] * self.MAX_STRAFE_SPEED
-        self._vel_cmd_msg.angular.z = pi / 180 * axes[self.WALK_AXES_YAW] * self.MAX_YAW_SPEED_DEG
+        self._vel_cmd_msg.linear.y = axes[self.WALK_AXES_STRAFE] * self.MAX_STRAFE_SPEED * -1
+        self._vel_cmd_msg.angular.z = pi / 180 * axes[self.WALK_AXES_YAW] * self.MAX_YAW_SPEED_DEG * -1
         print('Cmd Values: x speed: %1.3f m/s, y speed: %1.3f m/s, yaw rate: %1.3f deg/s ' \
               % (self._vel_cmd_msg.linear.x, self._vel_cmd_msg.linear.y, self._vel_cmd_msg.angular.z * 180 / pi))
         self._ros_pub_vel_cmd.publish(self._vel_cmd_msg)
