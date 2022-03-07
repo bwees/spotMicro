@@ -9,9 +9,9 @@ body_width: 0.078 # Horizontal width between hip joints
 body_length: 0.186 # Length between shoulder joints
 
 # Stance parameters
-default_stand_height: 0.155   # Height of robot body center when standing
-stand_front_x_offset: 0.015   # Fwb/back offset of front two legs from default stance
-stand_back_x_offset: -0.000      # Fwd/back offset of back two legs from default stance
+default_stand_height: 0.165   # Height of robot body center when standing
+stand_front_x_offset: -0.015   # Fwb/back offset of front two legs from default stance
+stand_back_x_offset: -0.015      # Fwd/back offset of back two legs from default stance
 #stand_front_x_offset: -0.010   # Offset better tuned for trot gait
 #stand_back_x_offset: -0.010      # Offset better tuned for trot gait
 lie_down_height: 0.083        # Height of body center when sitting
@@ -20,25 +20,25 @@ lie_down_foot_x_offset: 0.065 # Fwd/back offset of all(?) feet from default stan
 # Servo parameters
 num_servos: 12
 servo_max_angle_deg: 82.5
-RF_3: {num: 1,  center: 306,range: 372,direction:  1, center_angle_deg:  88.2}
-RF_2: {num: 2,  center: 306,range: 389,direction:  1, center_angle_deg: -27.6}
-RF_1: {num: 3,  center: 306,range: 396,direction: -1, center_angle_deg:  -5.4}
-RB_3: {num: 4,  center: 306,range: 396,direction:  1, center_angle_deg:  85.8}
-RB_2: {num: 5,  center: 306,range: 396,direction:  1, center_angle_deg: -35.4}
-RB_1: {num: 6,  center: 306,range: 411,direction:  1, center_angle_deg:  -4.4}
-LB_3: {num: 7,  center: 306,range: 390,direction:  1, center_angle_deg: -73.9}
-LB_2: {num: 8,  center: 306,range: 392,direction:  1, center_angle_deg:  38.7}
-LB_1: {num: 9,  center: 306,range: 374,direction: -1, center_angle_deg:  -0.4}
-LF_3: {num: 10, center: 306,range: 387,direction:  1, center_angle_deg: -82.8}
-LF_2: {num: 11, center: 306,range: 397,direction:  1, center_angle_deg:  38.6}
-LF_1: {num: 12, center: 306,range: 389,direction:  1, center_angle_deg:  -7.6}
+RF_3: {num: 1,  center: 306,range: 375.8,direction:  1, center_angle_deg:  48.29}
+RF_2: {num: 2,  center: 306,range: 396,direction:  1, center_angle_deg: -74.58}
+RF_1: {num: 3,  center: 306,range: 363,direction: -1, center_angle_deg:  -6.82}
+RB_3: {num: 4,  center: 306,range: 394,direction:  1, center_angle_deg:  47.72}
+RB_2: {num: 5,  center: 306,range: 403.3,direction:  1, center_angle_deg: -76.5}
+RB_1: {num: 6,  center: 306,range: 352,direction:  -1, center_angle_deg:  -7.97}
+LB_3: {num: 7,  center: 306,range: 403.3,direction:  1, center_angle_deg: -57.27}
+LB_2: {num: 8,  center: 306,range: 403.3,direction:  1, center_angle_deg:  83.86}
+LB_1: {num: 9,  center: 306,range: 388.7,direction: 1, center_angle_deg:  5.09}
+LF_3: {num: 10, center: 306,range: 385,direction:  1, center_angle_deg: -60}
+LF_2: {num: 11, center: 306,range: 407,direction:  1, center_angle_deg:  83.51}
+LF_1: {num: 12, center: 306,range: 407,direction:  1, center_angle_deg:  10.54}
 
 # Control Parameters
 transit_tau: 0.3 # Time constant in seconds for first order filters during transition state
 transit_rl: 0.06 # Body motion rate limit in m/s for transition state
-transit_angle_rl: 0.35 # Body motion angular rate limit in rad/s for transition state 
-max_fwd_velocity: 0.4
-max_side_velocity: 0.4
+transit_angle_rl: 3.0 # Body motion angular rate limit in rad/s for transition state 
+max_fwd_velocity: 0.06
+max_side_velocity: 0.06
 max_yaw_rate: 0.35
 
 # Gait parameters
@@ -60,17 +60,17 @@ foot_height_time_constant: 0.02
 # Only one leg is ever in swing phase at one time
 # 4 swing phases + 4 body motion phases to balance body over
 # three legs that will remain in contact with ground
-num_phases: 8
-rb_contact_phases: [1, 0, 1, 1, 1, 1, 1, 1]
-rf_contact_phases: [1, 1, 1, 0, 1, 1, 1, 1]
-lf_contact_phases: [1, 1, 1, 1, 1, 1, 1, 0]
-lb_contact_phases: [1, 1, 1, 1, 1, 0, 1, 1]
-overlap_time: 0.0
-swing_time: 0.36
-body_shift_phases: [1, 2, 3, 4, 5, 6, 7, 8]
-fwd_body_balance_shift: 0.035 # Amount the body center will shift forward when walking
-back_body_balance_shift: 0.005 # Amount the body center will shift backward when walking
-side_body_balance_shift: 0.015 # Amount the body center will shift side to side when walking 
+#num_phases: 8
+#rb_contact_phases: [1, 0, 1, 1, 1, 1, 1, 1]
+#rf_contact_phases: [1, 1, 1, 0, 1, 1, 1, 1]
+#lf_contact_phases: [1, 1, 1, 1, 1, 1, 1, 0]
+#lb_contact_phases: [1, 1, 1, 1, 1, 0, 1, 1]
+#overlap_time: 0.0
+#swing_time: 0.35
+#body_shift_phases: [1, 2, 3, 4, 5, 6, 7, 8]
+#fwd_body_balance_shift: 0.035 # Amount the body center will shift forward when walking
+#back_body_balance_shift: 0.005 # Amount the body center will shift backward when walking
+#side_body_balance_shift: 0.015 # Amount the body center will shift side to side when walking 
 
 #################################################
 ############## 4 Phase Trot Gait ################
@@ -78,17 +78,17 @@ side_body_balance_shift: 0.015 # Amount the body center will shift side to side 
 # 4 Phase gait where the two diagonally oposite legs move in
 # tandem together during swing phase
 # 2 swing phases + 2 phases where all four feet are on the ground
-# num_phases: 4
-# rb_contact_phases: [1, 0, 1, 1]
-# rf_contact_phases: [1, 1, 1, 0]
-# lf_contact_phases: [1, 0, 1, 1]
-# lb_contact_phases: [1, 1, 1, 0]
-# overlap_time: 0.18
-# swing_time: 0.18
-# body_shift_phases: [0,0,0,0]
-# fwd_body_balance_shift: 0
-# back_body_balance_shift: 0
-# side_body_balance_shift: 0
+num_phases: 4
+rb_contact_phases: [1, 0, 1, 1]
+rf_contact_phases: [1, 1, 1, 0]
+lf_contact_phases: [1, 0, 1, 1]
+lb_contact_phases: [1, 1, 1, 0]
+overlap_time: 0.18
+swing_time: 0.18
+body_shift_phases: [0,0,0,0]
+fwd_body_balance_shift: 0
+back_body_balance_shift: 0
+side_body_balance_shift: 0
 
 # TF Parameter
 lidar_x_pos: 0.045 # X offset of lidar coordinate frame center from robot body center
@@ -106,4 +106,3 @@ plot_mode: false # Publishes data for the python plotting node to work
 
 # Standalone mode
 standalone_mode: false # Enables node to run without i2cpwnboard
-
